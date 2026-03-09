@@ -1,9 +1,13 @@
 const mount = document.querySelector("[data-fox-scene]");
 
 if (mount) {
-  import("/vendor/three.module.min.js")
-    .then((THREE) => initFoxScene(THREE, mount))
-    .catch(() => {
+  Promise.all([
+    import("/vendor/three.module.min.js"),
+    import("/vendor/GLTFLoader.js")
+  ])
+    .then(([THREE, { GLTFLoader }]) => initFoxScene(THREE, GLTFLoader, mount))
+    .catch((err) => {
+      console.error("Fox scene load error:", err);
       showFallback(
         mount,
         "The 3D fox scene could not load right now. WebGL or the Three.js module is unavailable."
@@ -11,7 +15,7 @@ if (mount) {
     });
 }
 
-function initFoxScene(THREE, mountNode) {
+function initFoxScene(THREE, GLTFLoader, mountNode) {
   let renderer;
 
   try {
@@ -54,12 +58,15 @@ function initFoxScene(THREE, mountNode) {
   const forest = createForest(THREE);
   world.add(forest.group);
 
-  const fox = createFox(THREE);
-  world.add(fox.group);
-
   const fireflies = createFireflies(THREE);
   world.add(fireflies.points);
 
+  // Fox container - align feet with ground at y=-1.08
+  const foxGroup = new THREE.Group();
+  foxGroup.position.y = -1.08;
+  world.add(foxGroup);
+
+  // Shadow under fox
   const shadow = new THREE.Mesh(
     new THREE.CircleGeometry(1.35, 40),
     new THREE.MeshBasicMaterial({
@@ -72,6 +79,113 @@ function initFoxScene(THREE, mountNode) {
   shadow.rotation.x = -Math.PI / 2;
   shadow.position.set(0, -1.03, 0);
   world.add(shadow);
+
+  // Scattered $ coins that fade in and out in the forest
+  const coinGeo = new THREE.CylinderGeometry(0.22, 0.22, 0.06, 20);
+  const coins = [];
+  const coinRandom = createRandom(42);
+
+  for (let i = 0; i < 8; i++) {
+    const mat = new THREE.MeshStandardMaterial({
+      color: 0xffcf47,
+      emissive: 0xaa6a05,
+      emissiveIntensity: 0.3,
+      roughness: 0.2,
+      metalness: 1,
+      transparent: true,
+      opacity: 0
+    });
+    const coinMesh = new THREE.Mesh(coinGeo, mat);
+
+    // Create $ text on the coin face
+    const canvas = document.createElement("canvas");
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#b8860b";
+    ctx.beginPath();
+    ctx.arc(32, 32, 30, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#ffe066";
+    ctx.font = "bold 40px sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("$", 32, 34);
+
+    const dollarTex = new THREE.CanvasTexture(canvas);
+    const dollarFace = new THREE.Mesh(
+      new THREE.CircleGeometry(0.18, 20),
+      new THREE.MeshBasicMaterial({
+        map: dollarTex,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false
+      })
+    );
+    dollarFace.rotation.x = -Math.PI / 2;
+    dollarFace.position.y = 0.031;
+    coinMesh.add(dollarFace);
+
+    const px = (coinRandom() - 0.5) * 9;
+    const pz = (coinRandom() - 0.5) * 5;
+    const py = -0.8 + coinRandom() * 1.0;
+
+    coinMesh.position.set(px, py, pz);
+    coinMesh.rotation.x = Math.PI / 2;
+    world.add(coinMesh);
+
+    coins.push({
+      mesh: coinMesh,
+      faceMat: dollarFace.material,
+      bodyMat: mat,
+      baseY: py,
+      phaseOffset: coinRandom() * Math.PI * 2,
+      speed: 0.4 + coinRandom() * 0.6
+    });
+  }
+
+  // Load Fox GLB model
+  let mixer = null;
+  let foxModel = null;
+  let runAction = null;
+
+  const loader = new GLTFLoader();
+  loader.load(
+    "/models/Fox.glb",
+    (gltf) => {
+      foxModel = gltf.scene;
+      foxModel.scale.setScalar(0.018);
+      foxModel.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+          if (child.material) {
+            child.material.side = THREE.DoubleSide;
+          }
+        }
+      });
+      foxGroup.add(foxModel);
+
+      // Setup animations
+      if (gltf.animations && gltf.animations.length > 0) {
+        mixer = new THREE.AnimationMixer(foxModel);
+        // The Fox model typically has: Survey (idle), Walk, Run
+        const runClip = gltf.animations.find(
+          (c) => c.name === "Run" || c.name === "run"
+        ) || gltf.animations[gltf.animations.length - 1];
+
+        if (runClip) {
+          runAction = mixer.clipAction(runClip);
+          runAction.timeScale = 1.4;
+          runAction.play();
+        }
+      }
+    },
+    undefined,
+    (err) => {
+      console.error("Failed to load Fox model:", err);
+    }
+  );
 
   const pointer = {
     currentX: 0,
@@ -99,34 +213,43 @@ function initFoxScene(THREE, mountNode) {
   };
 
   const renderFrame = () => {
+    const delta = clock.getDelta();
     const elapsed = clock.getElapsedTime();
     const travel = Math.sin(elapsed * 0.85);
     const stride = elapsed * 10.5;
-    const bounce = Math.abs(Math.sin(stride)) * 0.1;
+    const bounce = Math.abs(Math.sin(stride)) * 0.08;
     const direction = Math.cos(elapsed * 0.85) >= 0 ? 1 : -1;
 
     pointer.currentX = THREE.MathUtils.lerp(pointer.currentX, pointer.targetX, 0.06);
     pointer.currentY = THREE.MathUtils.lerp(pointer.currentY, pointer.targetY, 0.06);
 
-    fox.group.position.x = travel * 4.35;
-    fox.group.position.y = -0.02 + bounce;
-    fox.group.rotation.y = direction > 0 ? 0 : Math.PI;
-    fox.body.rotation.z = Math.sin(stride) * 0.05;
-    fox.body.rotation.x = 0.03 + bounce * 0.18;
-    fox.head.rotation.z = -bounce * 0.55 + Math.sin(elapsed * 3.3) * 0.025;
-    fox.head.rotation.y = pointer.currentX * 0.08;
-    fox.tail.rotation.y = Math.sin(stride * 0.7) * 0.28;
-    fox.tail.rotation.z = 0.58 + Math.cos(stride * 0.7) * 0.16;
+    // Move fox group
+    foxGroup.position.x = travel * 4.35;
+    foxGroup.position.y = -1.08 + bounce;
 
-    for (const leg of fox.legs) {
-      leg.pivot.rotation.z = Math.sin(stride + leg.phase) * 0.78;
+    // Flip fox direction
+    if (foxModel) {
+      foxModel.rotation.y = direction > 0 ? Math.PI / 2 : -Math.PI / 2;
     }
 
-    fox.coin.rotation.x = elapsed * 6;
-    fox.coinRing.rotation.x = fox.coin.rotation.x;
-    fox.coin.material.emissiveIntensity = 0.34 + Math.abs(Math.sin(elapsed * 4.4)) * 0.32;
+    // Scattered coins fade in and out
+    for (const c of coins) {
+      const phase = elapsed * c.speed + c.phaseOffset;
+      const fade = Math.max(0, Math.sin(phase));
+      const opacity = fade * fade * 0.7;
+      c.bodyMat.opacity = opacity;
+      c.faceMat.opacity = opacity;
+      c.mesh.position.y = c.baseY + Math.sin(phase * 0.8) * 0.15;
+      c.mesh.rotation.z = elapsed * c.speed * 0.5;
+      c.bodyMat.emissiveIntensity = 0.2 + fade * 0.4;
+    }
 
-    shadow.position.x = fox.group.position.x;
+    // Update mixer
+    if (mixer) {
+      mixer.update(delta);
+    }
+
+    shadow.position.x = foxGroup.position.x;
     shadow.scale.x = 1.02 - bounce * 0.45;
     shadow.scale.y = 0.9 - bounce * 0.32;
     shadow.material.opacity = 0.22 - bounce * 0.34;
@@ -279,6 +402,11 @@ function createLights(THREE) {
   const rim = new THREE.DirectionalLight(0x50f1d8, 0.82);
   rim.position.set(7, 4, -8);
   group.add(rim);
+
+  // Warm light to enhance the fox's orange color
+  const foxLight = new THREE.PointLight(0xff9944, 0.6, 8, 2);
+  foxLight.position.set(0, 2, 3);
+  group.add(foxLight);
 
   return { group };
 }
@@ -477,185 +605,6 @@ function createForest(THREE) {
   }
 
   return { group, swayers };
-}
-
-function createFox(THREE) {
-  const group = new THREE.Group();
-  const body = new THREE.Group();
-  group.add(body);
-
-  const materials = {
-    fur: new THREE.MeshStandardMaterial({
-      color: 0xe96f2a,
-      roughness: 0.84,
-      metalness: 0.02
-    }),
-    furDark: new THREE.MeshStandardMaterial({
-      color: 0xbd4a18,
-      roughness: 0.88,
-      metalness: 0.02
-    }),
-    cream: new THREE.MeshStandardMaterial({
-      color: 0xf9ead2,
-      roughness: 0.9,
-      metalness: 0
-    }),
-    dark: new THREE.MeshStandardMaterial({
-      color: 0x1e1817,
-      roughness: 0.96,
-      metalness: 0
-    }),
-    coin: new THREE.MeshStandardMaterial({
-      color: 0xffcf47,
-      emissive: 0xaa6a05,
-      emissiveIntensity: 0.34,
-      roughness: 0.2,
-      metalness: 1
-    }),
-    coinEdge: new THREE.MeshStandardMaterial({
-      color: 0xffe28d,
-      roughness: 0.16,
-      metalness: 1
-    })
-  };
-
-  // Simple pivots keep the run cycle readable without importing an external model.
-  const torso = new THREE.Mesh(new THREE.SphereGeometry(0.72, 24, 22), materials.fur);
-  torso.scale.set(2.05, 1.04, 1.08);
-  torso.position.set(0, 0.36, 0);
-  torso.castShadow = true;
-  body.add(torso);
-
-  const belly = new THREE.Mesh(new THREE.SphereGeometry(0.42, 18, 18), materials.cream);
-  belly.scale.set(1.65, 0.72, 0.84);
-  belly.position.set(0.42, 0.15, 0);
-  belly.castShadow = true;
-  body.add(belly);
-
-  const shoulder = new THREE.Mesh(new THREE.SphereGeometry(0.38, 18, 18), materials.furDark);
-  shoulder.scale.set(1.1, 0.95, 0.86);
-  shoulder.position.set(0.86, 0.47, 0);
-  shoulder.castShadow = true;
-  body.add(shoulder);
-
-  const head = new THREE.Group();
-  head.position.set(1.45, 0.68, 0);
-  body.add(head);
-
-  const skull = new THREE.Mesh(new THREE.SphereGeometry(0.5, 22, 20), materials.fur);
-  skull.scale.set(1.12, 0.9, 0.94);
-  skull.castShadow = true;
-  head.add(skull);
-
-  const muzzle = new THREE.Mesh(new THREE.SphereGeometry(0.24, 18, 16), materials.cream);
-  muzzle.scale.set(2.2, 0.7, 0.82);
-  muzzle.position.set(0.42, -0.06, 0);
-  muzzle.castShadow = true;
-  head.add(muzzle);
-
-  const nose = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), materials.dark);
-  nose.position.set(0.78, -0.04, 0);
-  nose.castShadow = true;
-  head.add(nose);
-
-  const eyeGeometry = new THREE.SphereGeometry(0.04, 12, 12);
-  for (const side of [-1, 1]) {
-    const eye = new THREE.Mesh(eyeGeometry, materials.dark);
-    eye.position.set(0.28, 0.06, side * 0.2);
-    head.add(eye);
-  }
-
-  const earGeometry = new THREE.ConeGeometry(0.13, 0.34, 4);
-  for (const side of [-1, 1]) {
-    const ear = new THREE.Mesh(earGeometry, materials.furDark);
-    ear.position.set(0.02, 0.42, side * 0.24);
-    ear.rotation.z = side * 0.16;
-    ear.rotation.x = side * 0.08;
-    ear.castShadow = true;
-    head.add(ear);
-  }
-
-  const tail = new THREE.Group();
-  tail.position.set(-1.35, 0.58, 0);
-  body.add(tail);
-
-  const tailBody = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.16, 0.3, 1.55, 12),
-    materials.fur
-  );
-  tailBody.rotation.z = -1.08;
-  tailBody.position.set(-0.58, 0.02, 0);
-  tailBody.castShadow = true;
-  tail.add(tailBody);
-
-  const tailTip = new THREE.Mesh(new THREE.SphereGeometry(0.24, 18, 18), materials.cream);
-  tailTip.scale.set(1.8, 0.75, 0.9);
-  tailTip.position.set(-1.12, -0.48, 0);
-  tailTip.castShadow = true;
-  tail.add(tailTip);
-
-  const legs = [];
-  const legPairs = [
-    { x: 0.82, z: 0.28, phase: 0 },
-    { x: 0.82, z: -0.28, phase: Math.PI },
-    { x: -0.72, z: 0.26, phase: Math.PI },
-    { x: -0.72, z: -0.26, phase: 0 }
-  ];
-
-  for (const legPair of legPairs) {
-    const pivot = new THREE.Group();
-    pivot.position.set(legPair.x, 0.02, legPair.z);
-    body.add(pivot);
-
-    const upper = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.09, 0.07, 0.88, 10),
-      materials.furDark
-    );
-    upper.position.y = -0.44;
-    upper.castShadow = true;
-    pivot.add(upper);
-
-    const paw = new THREE.Mesh(new THREE.SphereGeometry(0.09, 14, 14), materials.dark);
-    paw.scale.set(1.3, 0.65, 1.25);
-    paw.position.y = -0.88;
-    paw.castShadow = true;
-    pivot.add(paw);
-
-    legs.push({
-      pivot,
-      phase: legPair.phase
-    });
-  }
-
-  const coin = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.26, 0.26, 0.09, 28),
-    materials.coin
-  );
-  coin.rotation.z = Math.PI / 2;
-  coin.position.set(0.96, -0.05, 0);
-  coin.castShadow = true;
-  head.add(coin);
-
-  const coinRing = new THREE.Mesh(
-    new THREE.TorusGeometry(0.18, 0.018, 10, 32),
-    materials.coinEdge
-  );
-  coinRing.rotation.y = Math.PI / 2;
-  coinRing.position.copy(coin.position);
-  coinRing.castShadow = true;
-  head.add(coinRing);
-
-  group.position.y = -0.02;
-
-  return {
-    group,
-    body,
-    head,
-    tail,
-    legs,
-    coin,
-    coinRing
-  };
 }
 
 function createFireflies(THREE) {

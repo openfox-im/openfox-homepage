@@ -331,6 +331,10 @@ section {
   align-content: start;
 }
 
+.fox-scene-section .scene-card {
+  min-height: 560px;
+}
+
 .scene-card {
   position: relative;
   min-height: 500px;
@@ -798,8 +802,8 @@ section {
     padding-top: 1.2rem;
   }
 
-  .scene-card {
-    min-height: 400px;
+  .fox-scene-section .scene-card {
+    min-height: 440px;
   }
 
   .hero__metrics {
@@ -821,7 +825,7 @@ section {
     max-width: 100%;
   }
 
-  .scene-card {
+  .fox-scene-section .scene-card {
     min-height: 340px;
   }
 
