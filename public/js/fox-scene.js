@@ -161,10 +161,10 @@ function initFoxScene(THREE, GLTFLoader, mountNode) {
           child.receiveShadow = true;
           if (child.material) {
             child.material.side = THREE.DoubleSide;
-            // Shift fox colors toward vibrant orange-red like the logo
-            child.material.color.lerp(new THREE.Color(0xe84420), 0.35);
-            child.material.emissive = new THREE.Color(0x991100);
-            child.material.emissiveIntensity = 0.08;
+            // Shift toward logo's vibrant orange-red, keep brightness
+            child.material.color.lerp(new THREE.Color(0xff5511), 0.45);
+            child.material.emissive = new THREE.Color(0xee4400);
+            child.material.emissiveIntensity = 0.12;
           }
         }
       });
