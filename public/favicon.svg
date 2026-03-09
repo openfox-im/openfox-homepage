@@ -1,0 +1,23 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" rx="30" fill="#08111A"/>
+  <g filter="url(#glow)">
+    <path d="M25 44L43 18L57 42L64 47L71 42L85 18L103 44L96 95L64 110L32 95L25 44Z" fill="url(#fox)" />
+    <path d="M64 47L43 36L39 88L64 101L89 88L85 36L64 47Z" fill="#101A26"/>
+    <path d="M48 69C51.3137 69 54 66.3137 54 63C54 59.6863 51.3137 57 48 57C44.6863 57 42 59.6863 42 63C42 66.3137 44.6863 69 48 69Z" fill="#67E5D5"/>
+    <path d="M80 69C83.3137 69 86 66.3137 86 63C86 59.6863 83.3137 57 80 57C76.6863 57 74 59.6863 74 63C74 66.3137 76.6863 69 80 69Z" fill="#67E5D5"/>
+    <path d="M57 80H71L64 88L57 80Z" fill="#FF8B38"/>
+  </g>
+  <defs>
+    <linearGradient id="fox" x1="25" y1="18" x2="103" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFAA4C"/>
+      <stop offset="0.55" stop-color="#FF7A33"/>
+      <stop offset="1" stop-color="#FF4E20"/>
+    </linearGradient>
+    <filter id="glow" x="13" y="6" width="102" height="116" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="6" result="effect1_foregroundBlur_1_1"/>
+    </filter>
+  </defs>
+</svg>
+

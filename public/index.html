@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenFox | The fox that keeps working while you sleep</title>
+    <meta
+      name="description"
+      content="OpenFox is a continuously running, local-first AI agent runtime with wallet support, payments, gateway relay, and long-lived background execution."
+    />
+    <meta
+      name="keywords"
+      content="OpenFox, AI agent runtime, local-first AI, wallet-native agent, x402, TOS, gateway relay"
+    />
+    <meta name="theme-color" content="#09131d" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://openfox.im/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=supreme@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://openfox.im/" />
+    <meta property="og:title" content="OpenFox | The fox that keeps working while you sleep" />
+    <meta
+      property="og:description"
+      content="A continuously running AI agent runtime that watches, executes, pays, settles, and keeps working while you are away."
+    />
+    <meta property="og:image" content="https://openfox.im/img/og-image.svg" />
+    <meta property="og:site_name" content="OpenFox" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OpenFox | The fox that keeps working while you sleep" />
+    <meta
+      name="twitter:description"
+      content="Local-first, wallet-native, payment-aware AI agents that keep running after you close the chat tab."
+    />
+    <meta name="twitter:image" content="https://openfox.im/img/og-image.svg" />
+
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="site-bg" aria-hidden="true">
+      <div class="site-bg__orb site-bg__orb--one"></div>
+      <div class="site-bg__orb site-bg__orb--two"></div>
+      <div class="site-bg__orb site-bg__orb--three"></div>
+      <div class="site-bg__grid"></div>
+    </div>
+
+    <div class="page-shell">
+      <header class="topbar reveal">
+        <a class="brand" href="/" aria-label="OpenFox home">
+          <img class="brand__mark" src="/img/fox-mark.svg" alt="" />
+          <span class="brand__text">OpenFox</span>
+        </a>
+        <nav class="topbar__nav" aria-label="Primary">
+          <a href="#capabilities">Capabilities</a>
+          <a href="#how-it-runs">How It Runs</a>
+          <a href="#quickstart">Quick Start</a>
+          <a href="#use-cases">Use Cases</a>
+          <a href="https://github.com/tos-network/openfox" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero reveal" id="top">
+          <div class="hero__copy">
+            <p class="eyebrow">local-first / wallet-native / payment-aware</p>
+            <h1>The fox that keeps working while you sleep.</h1>
+            <p class="hero__lede">
+              OpenFox is a continuously running AI agent runtime. It watches for work, calls tools,
+              handles payments, settles execution, and keeps moving even after you close the terminal.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#quickstart">Launch Locally</a>
+              <a
+                class="button button--ghost"
+                href="https://github.com/tos-network/openfox/blob/main/DOCUMENTATION.md"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Read Docs
+              </a>
+            </div>
+            <ul class="hero__metrics" aria-label="OpenFox highlights">
+              <li>
+                <strong>69</strong>
+                <span>built-in tools across runtime, wallet, memory, orchestration, and gateway paths</span>
+              </li>
+              <li>
+                <strong>3</strong>
+                <span>provider paths today: OpenAI, Anthropic, and Ollama</span>
+              </li>
+              <li>
+                <strong>24/7</strong>
+                <span>heartbeat, scheduling, persistence, and background execution</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero__panel">
+            <div class="terminal-card">
+              <div class="terminal-card__chrome" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="terminal-card__body">
+                <div class="terminal-line">
+                  <span class="terminal-prompt">fox</span>
+                  <span>status --mode runtime</span>
+                </div>
+                <div class="terminal-line terminal-line--muted">continuous loop active</div>
+                <div class="terminal-line terminal-line--muted">wallet loaded · payment route ready</div>
+                <div class="terminal-line terminal-line--muted">gateway relay available behind NAT</div>
+                <div class="terminal-divider"></div>
+                <ul class="signal-list">
+                  <li><span>think</span><strong>build next action from context</strong></li>
+                  <li><span>act</span><strong>call tools, shell, wallets, discovery</strong></li>
+                  <li><span>observe</span><strong>read outputs, costs, failures, balances</strong></li>
+                  <li><span>repeat</span><strong>keep advancing the work over time</strong></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="floating-pills" aria-label="Key traits">
+              <span>gateway relay</span>
+              <span>x402 payments</span>
+              <span>agent discovery</span>
+              <span>persistent state</span>
+              <span>skills & tools</span>
+              <span>TOS wallet</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="statement reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Why it exists</p>
+            <h2>Not another AI chat tab</h2>
+          </div>
+          <div class="statement__grid">
+            <article class="panel-card">
+              <span class="card-kicker">Most products</span>
+              <h3>Wait for the next click</h3>
+              <p>
+                A human asks once, the model answers once, and the workflow collapses as soon as the
+                tab closes.
+              </p>
+            </article>
+            <article class="panel-card">
+              <span class="card-kicker">OpenFox</span>
+              <h3>Keeps looping in the background</h3>
+              <p>
+                It runs on your machine, maintains state, schedules work, and keeps executing toward a
+                longer-lived objective.
+              </p>
+            </article>
+            <article class="panel-card">
+              <span class="card-kicker">Economic edge</span>
+              <h3>Can pay, settle, and expose capabilities</h3>
+              <p>
+                Wallet support, TOS transfers, x402 payment flow, and gateway relay let the agent do
+                more than generate text.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="capabilities reveal" id="capabilities">
+          <div class="section-heading">
+            <p class="eyebrow">Capability Surface</p>
+            <h2>Built for long-running agent work</h2>
+            <p>
+              The product direction is straightforward: an AI runtime that can keep working, keep
+              earning, and keep improving without constant babysitting.
+            </p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="feature-card__badge">01</span>
+              <h3>Continuous execution loop</h3>
+              <p>Think, act, observe, repeat. OpenFox keeps advancing work instead of stopping after one reply.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-card__badge">02</span>
+              <h3>Local-first runtime</h3>
+              <p>Run it locally by default, keep your own state, and bring your own provider keys when needed.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-card__badge">03</span>
+              <h3>Wallet and payment flows</h3>
+              <p>TOS wallet support plus x402 payment flow give the agent a path to pay, top up, and settle work.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-card__badge">04</span>
+              <h3>Gateway-backed reachability</h3>
+              <p>Provider agents behind NAT can still publish externally reachable capabilities through gateway relay.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-card__badge">05</span>
+              <h3>Persistent memory and scheduling</h3>
+              <p>Heartbeat logic, local state, tool history, and task context make it suitable for background work.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-card__badge">06</span>
+              <h3>Extensible agent surface</h3>
+              <p>Skills, local shell access, custom tools, orchestration, and child-agent paths make it hackable.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="timeline reveal" id="how-it-runs">
+          <div class="section-heading">
+            <p class="eyebrow">Execution Model</p>
+            <h2>How the fox keeps moving</h2>
+          </div>
+          <div class="timeline__grid">
+            <article class="timeline-step">
+              <span>01</span>
+              <h3>Provision</h3>
+              <p>Create the local wallet, config directory, and initial identity with the setup wizard.</p>
+            </article>
+            <article class="timeline-step">
+              <span>02</span>
+              <h3>Connect a provider</h3>
+              <p>Bring OpenAI, Anthropic, or Ollama online so the runtime has inference capacity.</p>
+            </article>
+            <article class="timeline-step">
+              <span>03</span>
+              <h3>Run continuously</h3>
+              <p>Heartbeat, scheduled tasks, memory, and tools keep the agent active without constant operator input.</p>
+            </article>
+            <article class="timeline-step">
+              <span>04</span>
+              <h3>Earn and extend</h3>
+              <p>Expose capabilities, settle paid work, add skills, and evolve into a longer-lived agent service.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="quickstart reveal" id="quickstart">
+          <div class="section-heading">
+            <p class="eyebrow">Quick Start</p>
+            <h2>Three ways to boot the fox</h2>
+            <p>
+              The site hosts a real installer entry point at <code>https://openfox.im/openfox.sh</code>.
+              If you prefer source-first workflows, the repository path is included below.
+            </p>
+          </div>
+
+          <div class="command-box">
+            <div class="command-box__tabs" role="tablist" aria-label="OpenFox start modes">
+              <button class="command-tab is-active" data-command-tab="installer" role="tab" aria-selected="true">Installer</button>
+              <button class="command-tab" data-command-tab="source" role="tab" aria-selected="false">Source</button>
+              <button class="command-tab" data-command-tab="run" role="tab" aria-selected="false">Run</button>
+            </div>
+
+            <section class="command-panel is-active" data-command-panel="installer">
+              <div class="command-panel__toolbar">
+                <span>Hosted one-liner</span>
+                <button class="copy-button" data-copy-target="cmd-installer">Copy</button>
+              </div>
+              <pre id="cmd-installer"><code>curl -fsSL https://openfox.im/openfox.sh | sh</code></pre>
+              <p class="command-note">Bootstraps Node/Pnpm prerequisites, clones the repo, installs dependencies, builds, then starts the runtime.</p>
+            </section>
+
+            <section class="command-panel" data-command-panel="source" hidden>
+              <div class="command-panel__toolbar">
+                <span>Hackable checkout</span>
+                <button class="copy-button" data-copy-target="cmd-source">Copy</button>
+              </div>
+              <pre id="cmd-source"><code>git clone https://github.com/tos-network/openfox.git
+cd openfox
+corepack enable
+corepack prepare pnpm@10.28.1 --activate
+pnpm install</code></pre>
+              <p class="command-note">Best when you want to inspect source, patch the runtime, or wire the homepage to repo updates.</p>
+            </section>
+
+            <section class="command-panel" data-command-panel="run" hidden>
+              <div class="command-panel__toolbar">
+                <span>Provider-first launch</span>
+                <button class="copy-button" data-copy-target="cmd-run">Copy</button>
+              </div>
+              <pre id="cmd-run"><code>export OPENAI_API_KEY=...
+pnpm openfox --setup
+pnpm openfox --run</code></pre>
+              <p class="command-note">Anthropic and Ollama are also supported. Configuration lives in <code>~/.openfox/openfox.json</code>.</p>
+            </section>
+          </div>
+        </section>
+
+        <section class="use-cases reveal" id="use-cases">
+          <div class="section-heading">
+            <p class="eyebrow">Product Direction</p>
+            <h2>What OpenFox is good for</h2>
+          </div>
+          <div class="use-cases__grid">
+            <article class="use-case-card">
+              <h3>Paid agent APIs</h3>
+              <p>Expose observation or execution capabilities and settle usage with payment-aware runtime paths.</p>
+            </article>
+            <article class="use-case-card">
+              <h3>Background automation</h3>
+              <p>Keep monitors, triggers, summaries, and multi-step pipelines alive while you are away from the keyboard.</p>
+            </article>
+            <article class="use-case-card">
+              <h3>Oracle and observation work</h3>
+              <p>Long-running tasks benefit from persistent context, repeatable execution, and wallet-linked accountability.</p>
+            </article>
+            <article class="use-case-card">
+              <h3>Gateway-backed provider agents</h3>
+              <p>Private machines can still provide public capabilities through relay paths without direct inbound exposure.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="resource-strip reveal">
+          <article class="resource-card">
+            <p class="eyebrow">Deep dive</p>
+            <h2>Read the runtime, not the marketing</h2>
+            <p>
+              The documentation and architecture notes already explain wallet paths, gateway relay,
+              provider config, memory, orchestration, and policy rules in more detail.
+            </p>
+            <div class="resource-card__links">
+              <a href="https://github.com/tos-network/openfox/blob/main/DOCUMENTATION.md" target="_blank" rel="noreferrer">Documentation</a>
+              <a href="https://github.com/tos-network/openfox/blob/main/ARCHITECTURE.md" target="_blank" rel="noreferrer">Architecture</a>
+              <a href="https://github.com/tos-network/openfox/blob/main/README.md" target="_blank" rel="noreferrer">Repository README</a>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer reveal">
+        <div>
+          <a class="brand" href="/" aria-label="OpenFox home">
+            <img class="brand__mark" src="/img/fox-mark.svg" alt="" />
+            <span class="brand__text">OpenFox</span>
+          </a>
+          <p>While you sleep, Fox keeps working and brings the coins back.</p>
+        </div>
+        <div class="footer__links">
+          <a href="https://github.com/tos-network/openfox" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/tos-network/openfox/blob/main/DOCUMENTATION.md" target="_blank" rel="noreferrer">Documentation</a>
+          <a href="/openfox.sh">Installer</a>
+        </div>
+        <p class="footer__meta">© <span id="currentYear"></span> OpenFox. Static homepage deployable to Cloudflare Workers or Pages.</p>
+      </footer>
+    </div>
+
+    <script src="/js/main.js" defer></script>
+  </body>
+</html>
+

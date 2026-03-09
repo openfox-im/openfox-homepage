@@ -1,0 +1,60 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#07111A"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="171" cy="120" r="180" fill="#FF6C2F" fill-opacity="0.16"/>
+  <circle cx="1024" cy="112" r="145" fill="#62E7D6" fill-opacity="0.12"/>
+  <circle cx="763" cy="498" r="210" fill="#FF8B38" fill-opacity="0.08"/>
+
+  <g opacity="0.18">
+    <path d="M0 72H1200" stroke="white"/>
+    <path d="M0 144H1200" stroke="white"/>
+    <path d="M0 216H1200" stroke="white"/>
+    <path d="M0 288H1200" stroke="white"/>
+    <path d="M0 360H1200" stroke="white"/>
+    <path d="M0 432H1200" stroke="white"/>
+    <path d="M0 504H1200" stroke="white"/>
+    <path d="M0 576H1200" stroke="white"/>
+    <path d="M72 0V630" stroke="white"/>
+    <path d="M144 0V630" stroke="white"/>
+    <path d="M216 0V630" stroke="white"/>
+    <path d="M288 0V630" stroke="white"/>
+    <path d="M360 0V630" stroke="white"/>
+    <path d="M432 0V630" stroke="white"/>
+    <path d="M504 0V630" stroke="white"/>
+    <path d="M576 0V630" stroke="white"/>
+    <path d="M648 0V630" stroke="white"/>
+    <path d="M720 0V630" stroke="white"/>
+    <path d="M792 0V630" stroke="white"/>
+    <path d="M864 0V630" stroke="white"/>
+    <path d="M936 0V630" stroke="white"/>
+    <path d="M1008 0V630" stroke="white"/>
+    <path d="M1080 0V630" stroke="white"/>
+    <path d="M1152 0V630" stroke="white"/>
+  </g>
+
+  <g>
+    <path d="M130 215L190 126L232 210L259 228L286 210L328 126L388 215L367 375L259 422L151 375L130 215Z" fill="url(#fox)" />
+    <path d="M259 228L191 191L179 346L259 392L339 346L327 191L259 228Z" fill="#0D1822"/>
+    <circle cx="207" cy="274" r="18" fill="#67E5D5"/>
+    <circle cx="311" cy="274" r="18" fill="#67E5D5"/>
+    <path d="M232 327H286L259 354L232 327Z" fill="#FF8B38"/>
+  </g>
+
+  <text x="452" y="236" fill="#62E7D6" font-size="28" font-family="Arial, Helvetica, sans-serif" letter-spacing="8">LOCAL-FIRST / WALLET-NATIVE / PAYMENT-AWARE</text>
+  <text x="452" y="334" fill="#F4F8FF" font-size="84" font-family="Arial, Helvetica, sans-serif" font-weight="700">OpenFox</text>
+  <text x="452" y="414" fill="#F4F8FF" font-size="48" font-family="Arial, Helvetica, sans-serif">The fox that keeps working</text>
+  <text x="452" y="472" fill="#F4F8FF" font-size="48" font-family="Arial, Helvetica, sans-serif">while you sleep.</text>
+  <text x="452" y="548" fill="#AEBAD0" font-size="28" font-family="Arial, Helvetica, sans-serif">Continuous agents, tools, wallets, payments, gateway relay, and background execution.</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#09131D"/>
+      <stop offset="1" stop-color="#03070C"/>
+    </linearGradient>
+    <linearGradient id="fox" x1="130" y1="126" x2="388" y2="422" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFAA4C"/>
+      <stop offset="0.55" stop-color="#FF7A33"/>
+      <stop offset="1" stop-color="#FF4E20"/>
+    </linearGradient>
+  </defs>
+</svg>
