@@ -1,8 +1,6 @@
 # OpenFox Homepage
 
-Static homepage for `openfox.im`, built in the spirit of [`tos-homepage`](https://github.com/tos-network/tos-homepage): plain HTML, CSS, and JavaScript with a direct Cloudflare deployment path.
-
-The visual direction is adapted from the local OpenClaw landing page language: bold typography, deep-space gradients, glass panels, and strong product-first messaging.
+Static homepage for [openfox.im](https://openfox.im). Pure HTML + CSS + JS, no build step, deployed to Cloudflare Pages via Wrangler.
 
 ## Stack
 

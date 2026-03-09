@@ -3,7 +3,7 @@
 # curl -fsSL https://openfox.im/openfox.sh | sh
 set -e
 
-REPO="https://github.com/tos-network/openfox.git"
+REPO="https://github.com/openfox-im/openfox.git"
 
 if [ -n "$OPENFOX_DIR" ]; then
   INSTALL_DIR="$OPENFOX_DIR"
