@@ -488,6 +488,15 @@ section {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
 }
 
+.terminal-line--earned {
+  color: var(--accent);
+}
+
+.terminal-line--earned strong {
+  color: var(--accent-cyan);
+  margin: 0 0.3em;
+}
+
 .signal-list {
   display: grid;
   gap: 0.85rem;
