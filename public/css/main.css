@@ -328,6 +328,94 @@ section {
 .hero__panel {
   display: grid;
   gap: 1rem;
+  align-content: start;
+}
+
+.scene-card {
+  position: relative;
+  min-height: 500px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 215, 110, 0.18), transparent 22%),
+    radial-gradient(circle at 82% 20%, rgba(98, 231, 214, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(10, 22, 31, 0.98), rgba(5, 12, 18, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.scene-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.scene-card__viewport,
+.scene-card__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.scene-card__viewport {
+  overflow: hidden;
+}
+
+.scene-card__viewport canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scene-card__viewport.is-fallback {
+  display: grid;
+  align-items: end;
+  padding: 1.4rem;
+}
+
+.scene-card__fallback {
+  max-width: 18rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(5, 10, 17, 0.66);
+  color: var(--text-soft);
+}
+
+.scene-card__overlay {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(4, 9, 13, 0.04), rgba(4, 9, 13, 0.12) 44%, rgba(4, 9, 13, 0.8) 100%);
+}
+
+.scene-card__badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 34px;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(5, 10, 17, 0.72);
+  color: var(--accent-cyan);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.scene-card__caption {
+  max-width: 22rem;
+  margin: 0.85rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.98rem;
 }
 
 .terminal-card {
@@ -710,6 +798,10 @@ section {
     padding-top: 1.2rem;
   }
 
+  .scene-card {
+    min-height: 400px;
+  }
+
   .hero__metrics {
     grid-template-columns: 1fr;
   }
@@ -729,6 +821,14 @@ section {
     max-width: 100%;
   }
 
+  .scene-card {
+    min-height: 340px;
+  }
+
+  .scene-card__overlay {
+    padding: 1rem;
+  }
+
   .signal-list li {
     align-items: flex-start;
     flex-direction: column;
@@ -743,4 +843,3 @@ section {
     align-items: flex-start;
   }
 }
-

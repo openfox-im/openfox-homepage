@@ -103,27 +103,19 @@
           </div>
 
           <div class="hero__panel">
-            <div class="terminal-card">
-              <div class="terminal-card__chrome" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="terminal-card__body">
-                <div class="terminal-line">
-                  <span class="terminal-prompt">fox</span>
-                  <span>status --mode runtime</span>
-                </div>
-                <div class="terminal-line terminal-line--muted">continuous loop active</div>
-                <div class="terminal-line terminal-line--muted">wallet loaded · payment route ready</div>
-                <div class="terminal-line terminal-line--muted">gateway relay available behind NAT</div>
-                <div class="terminal-divider"></div>
-                <ul class="signal-list">
-                  <li><span>think</span><strong>build next action from context</strong></li>
-                  <li><span>act</span><strong>call tools, shell, wallets, discovery</strong></li>
-                  <li><span>observe</span><strong>read outputs, costs, failures, balances</strong></li>
-                  <li><span>repeat</span><strong>keep advancing the work over time</strong></li>
-                </ul>
+            <div class="scene-card">
+              <div
+                class="scene-card__viewport"
+                data-fox-scene
+                role="img"
+                aria-label="Animated 3D fox carrying a gold coin and running back and forth through a forest"
+              ></div>
+              <div class="scene-card__overlay" aria-hidden="true">
+                <span class="scene-card__badge">Three.js hero scene</span>
+                <p class="scene-card__caption">
+                  A low-poly fox loops through the forest carrying a coin, turning the
+                  homepage story into motion instead of a static mockup.
+                </p>
               </div>
             </div>
 
@@ -354,7 +346,7 @@ pnpm openfox --run</code></pre>
       </footer>
     </div>
 
+    <script type="module" src="/js/fox-scene.js"></script>
     <script src="/js/main.js" defer></script>
   </body>
 </html>
-
