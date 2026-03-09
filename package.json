@@ -9,8 +9,8 @@
     "dev": "wrangler dev --assets public",
     "deploy": "wrangler deploy --assets public",
     "deploy:dry": "wrangler deploy --assets public --dry-run",
-    "pages:create": "wrangler pages project create openfox-im",
-    "deploy:pages": "wrangler pages deploy public --project-name openfox-im",
+    "pages:create": "wrangler pages project create openfox-homepage",
+    "deploy:pages": "wrangler pages deploy public --project-name openfox-homepage",
     "preview:pages": "wrangler pages dev public"
   },
   "devDependencies": {
