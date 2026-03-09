@@ -150,6 +150,14 @@
     return `rgba(${red}, ${green}, ${blue}, ${opacity})`;
   }
 
+  function displayWorkspace(workspace) {
+    return workspace.replace(/^~\//, "");
+  }
+
+  function displayNodeId(nodeId) {
+    return nodeId.replace(/^~\//, "");
+  }
+
   function hashSeed(input) {
     let hash = 1779033703 ^ input.length;
     for (let index = 0; index < input.length; index += 1) {
@@ -405,7 +413,7 @@
     }
 
     if (detailName) {
-      detailName.textContent = node.id;
+      detailName.textContent = displayNodeId(node.id);
     }
 
     if (detailCopy) {
@@ -413,7 +421,7 @@
     }
 
     if (detailWorkspace) {
-      detailWorkspace.textContent = node.workspace;
+      detailWorkspace.textContent = displayWorkspace(node.workspace);
     }
 
     if (detailRole) {
@@ -549,7 +557,7 @@
 
       context.fillStyle = hexToRgba(style.color, 0.68);
       context.font = '700 34px "Cabinet Grotesk", system-ui, sans-serif';
-      context.fillText(workspace, style.labelX, style.labelY);
+      context.fillText(displayWorkspace(workspace), style.labelX, style.labelY);
 
       context.fillStyle = "rgba(238, 244, 255, 0.38)";
       context.font = '500 14px "Supreme", system-ui, sans-serif';

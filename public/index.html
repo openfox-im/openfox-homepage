@@ -144,6 +144,107 @@
           </div>
         </section>
 
+        <section class="agent-viewer reveal" id="agent-viewer">
+          <div class="section-heading agent-viewer__heading">
+            <p class="eyebrow">Agent Mesh</p>
+            <h2>A transparent viewer for <code>openfox</code> and <code>gtos</code></h2>
+            <p>
+              A seeded mock graph of 100 agents exchanging tasks, payment routes, relay hops, and
+              state syncs. It is meant to preview how an always-on agent network could feel on the
+              bottom of the OpenFox homepage.
+            </p>
+          </div>
+
+          <div class="agent-viewer__grid">
+            <aside class="agent-viewer__sidebar">
+              <div class="agent-viewer__stats">
+                <article class="agent-viewer__stat">
+                  <span>Agents</span>
+                  <strong data-agent-stat="nodes">100</strong>
+                </article>
+                <article class="agent-viewer__stat">
+                  <span>Links</span>
+                  <strong data-agent-stat="links">0</strong>
+                </article>
+                <article class="agent-viewer__stat">
+                  <span>Cross-workspace</span>
+                  <strong data-agent-stat="cross-links">0</strong>
+                </article>
+                <article class="agent-viewer__stat">
+                  <span>Namespaces</span>
+                  <strong>2</strong>
+                </article>
+              </div>
+
+              <div class="agent-viewer__legend panel-card">
+                <div class="agent-viewer__legend-row">
+                  <span class="agent-viewer__legend-dot agent-viewer__legend-dot--openfox"></span>
+                  <span>openfox runtimes</span>
+                </div>
+                <div class="agent-viewer__legend-row">
+                  <span class="agent-viewer__legend-dot agent-viewer__legend-dot--gtos"></span>
+                  <span>gtos runtimes</span>
+                </div>
+                <div class="agent-viewer__legend-row">
+                  <span class="agent-viewer__legend-dot agent-viewer__legend-dot--cross"></span>
+                  <span>payment and relay links</span>
+                </div>
+              </div>
+
+              <article class="agent-viewer__detail panel-card" data-agent-detail>
+                <p class="agent-viewer__detail-kicker">Mesh focus</p>
+                <h3 data-agent-detail-name>openfox/gateway-07</h3>
+                <p class="agent-viewer__detail-copy" data-agent-detail-copy>
+                  Hover a node to inspect its workspace, role, peers, and dominant traffic pattern.
+                </p>
+                <dl class="agent-viewer__detail-list">
+                  <div>
+                    <dt>Workspace</dt>
+                    <dd data-agent-detail-workspace>openfox</dd>
+                  </div>
+                  <div>
+                    <dt>Role</dt>
+                    <dd data-agent-detail-role>gateway</dd>
+                  </div>
+                  <div>
+                    <dt>Peers</dt>
+                    <dd data-agent-detail-peers>14</dd>
+                  </div>
+                  <div>
+                    <dt>Status</dt>
+                    <dd data-agent-detail-status>relaying tasks</dd>
+                  </div>
+                </dl>
+              </article>
+
+              <div class="agent-viewer__actions">
+                <button class="agent-viewer__button" type="button" data-agent-randomize>
+                  Randomize Mesh
+                </button>
+                <p class="agent-viewer__note">
+                  Mock data only. Drag nodes, drag the stage to pan, and scroll to zoom.
+                </p>
+              </div>
+            </aside>
+
+            <div class="agent-viewer__frame">
+              <div class="agent-viewer__chrome" aria-hidden="true">
+                <span class="agent-viewer__chip">100 seeded agents</span>
+                <span class="agent-viewer__chip">transparent canvas</span>
+                <span class="agent-viewer__chip">mock interactions</span>
+              </div>
+              <canvas
+                class="agent-viewer__canvas"
+                data-agent-viewer
+                width="1600"
+                height="980"
+                aria-label="Interactive graph of mock agent relationships between openfox and gtos"
+              ></canvas>
+              <div class="agent-viewer__hint">Drag node / drag stage / scroll to zoom</div>
+            </div>
+          </div>
+        </section>
+
         <section class="statement reveal">
           <div class="section-heading">
             <p class="eyebrow">Why it exists</p>
@@ -364,106 +465,6 @@ pnpm openfox --run</code></pre>
           </div>
         </section>
 
-        <section class="agent-viewer reveal" id="agent-viewer">
-          <div class="section-heading agent-viewer__heading">
-            <p class="eyebrow">Agent Mesh</p>
-            <h2>A transparent viewer for <code>~/openfox</code> and <code>~/gtos</code></h2>
-            <p>
-              A seeded mock graph of 100 agents exchanging tasks, payment routes, relay hops, and
-              state syncs. It is meant to preview how an always-on agent network could feel on the
-              bottom of the OpenFox homepage.
-            </p>
-          </div>
-
-          <div class="agent-viewer__grid">
-            <aside class="agent-viewer__sidebar">
-              <div class="agent-viewer__stats">
-                <article class="agent-viewer__stat">
-                  <span>Agents</span>
-                  <strong data-agent-stat="nodes">100</strong>
-                </article>
-                <article class="agent-viewer__stat">
-                  <span>Links</span>
-                  <strong data-agent-stat="links">0</strong>
-                </article>
-                <article class="agent-viewer__stat">
-                  <span>Cross-workspace</span>
-                  <strong data-agent-stat="cross-links">0</strong>
-                </article>
-                <article class="agent-viewer__stat">
-                  <span>Namespaces</span>
-                  <strong>2</strong>
-                </article>
-              </div>
-
-              <div class="agent-viewer__legend panel-card">
-                <div class="agent-viewer__legend-row">
-                  <span class="agent-viewer__legend-dot agent-viewer__legend-dot--openfox"></span>
-                  <span>~/openfox runtimes</span>
-                </div>
-                <div class="agent-viewer__legend-row">
-                  <span class="agent-viewer__legend-dot agent-viewer__legend-dot--gtos"></span>
-                  <span>~/gtos runtimes</span>
-                </div>
-                <div class="agent-viewer__legend-row">
-                  <span class="agent-viewer__legend-dot agent-viewer__legend-dot--cross"></span>
-                  <span>payment and relay links</span>
-                </div>
-              </div>
-
-              <article class="agent-viewer__detail panel-card" data-agent-detail>
-                <p class="agent-viewer__detail-kicker">Mesh focus</p>
-                <h3 data-agent-detail-name>~/openfox/gateway-07</h3>
-                <p class="agent-viewer__detail-copy" data-agent-detail-copy>
-                  Hover a node to inspect its workspace, role, peers, and dominant traffic pattern.
-                </p>
-                <dl class="agent-viewer__detail-list">
-                  <div>
-                    <dt>Workspace</dt>
-                    <dd data-agent-detail-workspace>~/openfox</dd>
-                  </div>
-                  <div>
-                    <dt>Role</dt>
-                    <dd data-agent-detail-role>gateway</dd>
-                  </div>
-                  <div>
-                    <dt>Peers</dt>
-                    <dd data-agent-detail-peers>14</dd>
-                  </div>
-                  <div>
-                    <dt>Status</dt>
-                    <dd data-agent-detail-status>relaying tasks</dd>
-                  </div>
-                </dl>
-              </article>
-
-              <div class="agent-viewer__actions">
-                <button class="agent-viewer__button" type="button" data-agent-randomize>
-                  Randomize Mesh
-                </button>
-                <p class="agent-viewer__note">
-                  Mock data only. Drag nodes, drag the stage to pan, and scroll to zoom.
-                </p>
-              </div>
-            </aside>
-
-            <div class="agent-viewer__frame">
-              <div class="agent-viewer__chrome" aria-hidden="true">
-                <span class="agent-viewer__chip">100 seeded agents</span>
-                <span class="agent-viewer__chip">transparent canvas</span>
-                <span class="agent-viewer__chip">mock interactions</span>
-              </div>
-              <canvas
-                class="agent-viewer__canvas"
-                data-agent-viewer
-                width="1600"
-                height="980"
-                aria-label="Interactive graph of mock agent relationships between openfox and gtos"
-              ></canvas>
-              <div class="agent-viewer__hint">Drag node / drag stage / scroll to zoom</div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer class="footer reveal">
