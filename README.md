@@ -45,22 +45,6 @@ Verify that a deployment target is serving the expected Pages site:
 pnpm verify:url https://openfox.im/
 ```
 
-## GitHub Actions Deployment
-
-Add these repository secrets before enabling the workflow:
-
-- `CLOUDFLARE_API_TOKEN`
-- `CLOUDFLARE_ACCOUNT_ID`
-
-You can retrieve the account ID with:
-
-```bash
-npx wrangler whoami
-```
-
-The workflow deploys to the Pages project `openfox-homepage`, then verifies both the new `pages.dev` deployment URL and `https://openfox.im/`.
-Do not wire a second production deploy path in parallel. If you later enable Cloudflare Pages Git integration, disable this workflow or disable the dashboard-driven deploys so you keep exactly one production publisher.
-
 ## Structure
 
 ```text
