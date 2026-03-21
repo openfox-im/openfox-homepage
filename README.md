@@ -5,8 +5,7 @@ Static homepage for [openfox.im](https://openfox.im). Pure HTML + CSS + JS, no b
 ## Stack
 
 - Static files in `public/`
-- Cloudflare Workers static assets via `wrangler deploy`
-- Optional Cloudflare Pages direct upload via `wrangler pages deploy`
+- Cloudflare Pages direct upload via `wrangler pages deploy`
 
 ## Local Development
 
@@ -17,23 +16,7 @@ pnpm install
 pnpm dev
 ```
 
-This serves the site with Wrangler at `http://localhost:8787`.
-
-## Deploy To Cloudflare Workers
-
-```bash
-pnpm cf:login
-pnpm deploy
-```
-
-`wrangler.toml` is already configured to publish the `public/` directory as a static asset site.
-The deploy script also passes `--assets public` explicitly so the publish target is unambiguous.
-
-If you want to validate the deploy bundle without pushing it:
-
-```bash
-pnpm deploy:dry
-```
+This serves the site with Wrangler Pages locally at `http://localhost:8788` by default.
 
 ## Deploy To Cloudflare Pages
 
@@ -46,7 +29,8 @@ pnpm pages:create
 Deploy the current `public/` directory:
 
 ```bash
-pnpm deploy:pages
+pnpm cf:login
+pnpm deploy
 ```
 
 If you want a local Pages-style preview:
@@ -60,7 +44,6 @@ pnpm preview:pages
 ```text
 homepage/
 ├── package.json
-├── wrangler.toml
 └── public/
     ├── index.html
     ├── openfox.sh
@@ -79,3 +62,4 @@ homepage/
 
 - The installer exposed on the homepage is hosted at `/openfox.sh` and mirrors the OpenFox repository bootstrap flow.
 - Canonical metadata currently targets `https://openfox.im/`.
+- The production site is served from the Cloudflare Pages project `openfox-homepage`.

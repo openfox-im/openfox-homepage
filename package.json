@@ -2,15 +2,13 @@
   "name": "openfox-homepage",
   "private": true,
   "version": "0.1.0",
-  "description": "Static homepage for openfox.im, deployable to Cloudflare Workers or Pages.",
+  "description": "Static homepage for openfox.im, deployed to Cloudflare Pages.",
   "packageManager": "pnpm@10.28.1",
   "scripts": {
     "cf:login": "wrangler login",
-    "dev": "wrangler dev --assets public",
-    "deploy": "wrangler deploy --assets public",
-    "deploy:dry": "wrangler deploy --assets public --dry-run",
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public --project-name openfox-homepage",
     "pages:create": "wrangler pages project create openfox-homepage",
-    "deploy:pages": "wrangler pages deploy public --project-name openfox-homepage",
     "preview:pages": "wrangler pages dev public"
   },
   "devDependencies": {
