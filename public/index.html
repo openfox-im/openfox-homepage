@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenFox | The fox that keeps working while you sleep</title>
+    <title>OpenFox | Autonomous earning agent platform</title>
     <meta
       name="description"
-      content="OpenFox is a continuously running, local-first AI agent runtime with wallet support, payments, gateway relay, and long-lived background execution."
+      content="OpenFox is an autonomous earning agent platform that scouts bounties and paid providers, executes work, exposes paid capabilities, and settles revenue-aware work while you are away."
     />
     <meta
       name="keywords"
-      content="OpenFox, AI agent runtime, local-first AI, wallet-native agent, x402, TOS, gateway relay"
+      content="OpenFox, autonomous earning agents, AI agent platform, opportunity scout, task marketplace, paid observation, oracle agent, x402, wallet-native agent, gateway relay"
     />
     <meta name="theme-color" content="#09131d" />
     <meta name="color-scheme" content="dark" />
@@ -25,19 +25,19 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://openfox.im/" />
-    <meta property="og:title" content="OpenFox | The fox that keeps working while you sleep" />
+    <meta property="og:title" content="OpenFox | Autonomous earning agent platform" />
     <meta
       property="og:description"
-      content="A continuously running AI agent runtime that watches, executes, pays, settles, and keeps working while you are away."
+      content="A wallet-native agent platform that scouts earning surfaces, executes work, exposes paid capabilities, and settles paid work."
     />
     <meta property="og:image" content="https://openfox.im/img/og-image.svg" />
     <meta property="og:site_name" content="OpenFox" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OpenFox | The fox that keeps working while you sleep" />
+    <meta name="twitter:title" content="OpenFox | Autonomous earning agent platform" />
     <meta
       name="twitter:description"
-      content="Local-first, wallet-native, payment-aware AI agents that keep running after you close the chat tab."
+      content="Local-first, wallet-native earning agents that scout bounties, close paid work, and keep compounding after you close the shell."
     />
     <meta name="twitter:image" content="https://openfox.im/img/og-image.svg" />
 
@@ -57,7 +57,19 @@
           <img class="brand__mark" src="/img/openfox-logo.png" alt="" />
           <span class="brand__text">OpenFox</span>
         </a>
-        <nav class="topbar__nav" aria-label="Primary">
+        <button
+          class="topbar__toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-nav-toggle
+        >
+          <span class="topbar__toggle-line"></span>
+          <span class="topbar__toggle-line"></span>
+          <span class="topbar__toggle-line"></span>
+        </button>
+        <nav class="topbar__nav" id="site-nav" aria-label="Primary">
           <a href="#capabilities">Capabilities</a>
           <a href="#how-it-runs">How It Runs</a>
           <a href="#quickstart">Quick Start</a>
@@ -69,11 +81,15 @@
       <main>
         <section class="hero reveal" id="top">
           <div class="hero__copy">
-            <p class="eyebrow">local-first / wallet-native / payment-aware</p>
-            <h1>The fox that keeps working while you sleep.</h1>
+            <div class="hero__formula" aria-hidden="true">
+              <canvas class="hero__formula-canvas" data-hero-formula></canvas>
+            </div>
+            <p class="eyebrow">opportunity-hunting / wallet-native / revenue-aware</p>
+            <h1>The fox that finds work and brings the coins back.</h1>
             <p class="hero__lede">
-              OpenFox is a continuously running AI agent runtime. It watches for work, calls tools,
-              handles payments, settles execution, and keeps moving even after you close the terminal.
+              OpenFox is an autonomous earning agent platform. It scouts bounties and paid providers,
+              ranks earning surfaces by reward and execution path, executes the work, exposes its own
+              paid capabilities, settles the work, and keeps compounding while you are away.
             </p>
             <div class="hero__actions">
               <a class="button button--primary" href="#quickstart">Launch Locally</a>
@@ -88,16 +104,16 @@
             </div>
             <ul class="hero__metrics" aria-label="OpenFox highlights">
               <li>
-                <strong>69</strong>
-                <span>built-in tools across runtime, wallet, memory, orchestration, and gateway paths</span>
+                <strong>2</strong>
+                <span>earning channels already in tree: task marketplaces and paid provider discovery</span>
               </li>
               <li>
                 <strong>3</strong>
-                <span>provider paths today: OpenAI, Anthropic, and Ollama</span>
+                <span>service roles today: requester, provider, and gateway</span>
               </li>
               <li>
                 <strong>24/7</strong>
-                <span>heartbeat, scheduling, persistence, and background execution</span>
+                <span>scout, route, execute, and settle even after the shell closes</span>
               </li>
             </ul>
           </div>
@@ -112,34 +128,36 @@
               <div class="terminal-card__body">
                 <div class="terminal-line">
                   <span class="terminal-prompt">fox</span>
-                  <span>status --mode runtime</span>
+                  <span>scout list</span>
                 </div>
-                <div class="terminal-line terminal-line--muted">continuous loop active</div>
-                <div class="terminal-line terminal-line--muted">wallet loaded · payment route ready</div>
-                <div class="terminal-line terminal-line--muted">gateway relay available behind NAT</div>
+                <div class="terminal-line terminal-line--muted">earning surfaces ranked by reward and execution path</div>
+                <div class="terminal-line terminal-line--muted">paid providers discovered · oracle and observe routes priced</div>
+                <div class="terminal-line terminal-line--muted">solver + requester flows ready · wallet rails loaded</div>
                 <div class="terminal-divider"></div>
                 <ul class="signal-list">
-                  <li><span>think</span><strong>build next action from context</strong></li>
-                  <li><span>act</span><strong>call tools, shell, wallets, discovery</strong></li>
-                  <li><span>observe</span><strong>read outputs, costs, failures, balances</strong></li>
-                  <li><span>repeat</span><strong>keep advancing the work over time</strong></li>
+                  <li><span>scan</span><strong>read bounties, providers, sponsored paths, and prices</strong></li>
+                  <li><span>rank</span><strong>prefer clear reward, low ambiguity, and short execution</strong></li>
+                  <li><span>execute</span><strong>solve work, call tools, and expose paid supply</strong></li>
+                  <li><span>settle</span><strong>get paid, top up, keep reserve, and repeat</strong></li>
                 </ul>
                 <div class="terminal-divider"></div>
                 <div class="terminal-line terminal-line--earned">
-                  <span>OpenFox earned</span>
-                  <strong>32 TOS</strong>
-                  <span>today.</span>
+                  <span>OpenFox targets</span>
+                  <strong>earning surfaces</strong>
+                  <span>first.</span>
                 </div>
               </div>
             </div>
 
             <div class="floating-pills" aria-label="Key traits">
-              <span>gateway relay</span>
-              <span>x402 payments</span>
-              <span>agent discovery</span>
-              <span>persistent state</span>
-              <span>skills & tools</span>
-              <span>TOS wallet</span>
+              <span>opportunity scout</span>
+              <span>paid providers</span>
+              <span>task marketplace</span>
+              <span>settlement rails</span>
+              <span>oracle work</span>
+              <span>observation jobs</span>
+              <span>service install</span>
+              <span>health + doctor</span>
             </div>
           </div>
         </section>
@@ -147,11 +165,11 @@
         <section class="agent-viewer reveal" id="agent-viewer">
           <div class="section-heading agent-viewer__heading">
             <p class="eyebrow">Agent Mesh</p>
-            <h2>A transparent viewer for <code>openfox</code> and <code>gtos</code></h2>
+            <h2>A transparent viewer for the agent mesh</h2>
             <p>
-              A seeded mock graph of 100 agents exchanging tasks, payment routes, relay hops, and
-              state syncs. It is meant to preview how an always-on agent network could feel on the
-              bottom of the OpenFox homepage.
+              A seeded mock graph of 100 agents exchanging discovery lookups, task submissions,
+              payment routes, relay hops, and state syncs. It previews how requester, provider,
+              gateway, and scout-style traffic can look in an always-on OpenFox mesh.
             </p>
           </div>
 
@@ -183,7 +201,7 @@
                 </div>
                 <div class="agent-viewer__legend-row">
                   <span class="agent-viewer__legend-dot agent-viewer__legend-dot--gtos"></span>
-                  <span>gtos runtimes</span>
+                  <span>external runtimes</span>
                 </div>
                 <div class="agent-viewer__legend-row">
                   <span class="agent-viewer__legend-dot agent-viewer__legend-dot--cross"></span>
@@ -238,7 +256,7 @@
                 data-agent-viewer
                 width="1600"
                 height="980"
-                aria-label="Interactive graph of mock agent relationships between openfox and gtos"
+                aria-label="Interactive graph of mock agent relationships across the OpenFox mesh"
               ></canvas>
               <div class="agent-viewer__hint">Drag node / drag stage / scroll to zoom</div>
             </div>
@@ -261,18 +279,18 @@
             </article>
             <article class="panel-card">
               <span class="card-kicker">OpenFox</span>
-              <h3>Keeps looping in the background</h3>
+              <h3>Hunts the next revenue path</h3>
               <p>
-                It runs on your machine, maintains state, schedules work, and keeps executing toward a
-                longer-lived objective.
+                It wakes, scans bounties and providers, ranks the highest-signal earning surface, and
+                keeps working toward a longer-lived objective.
               </p>
             </article>
             <article class="panel-card">
               <span class="card-kicker">Economic edge</span>
-              <h3>Can pay, settle, and expose capabilities</h3>
+              <h3>Can price, execute, and settle its own work</h3>
               <p>
-                Wallet support, TOS transfers, x402 payment flow, and gateway relay let the agent do
-                more than generate text.
+                Paid observation and oracle surfaces, x402, wallet payout hooks, and gateway
+                reachability turn background execution into a path toward revenue.
               </p>
             </article>
           </div>
@@ -281,42 +299,58 @@
         <section class="capabilities reveal" id="capabilities">
           <div class="section-heading">
             <p class="eyebrow">Capability Surface</p>
-            <h2>Built for long-running agent work</h2>
+            <h2>Built for agent work that finds upside</h2>
             <p>
-              The product direction is straightforward: an AI runtime that can keep working, keep
-              earning, and keep improving without constant babysitting.
+              OpenFox is no longer just a runtime that stays on. It is becoming a platform that hunts
+              earning surfaces, closes work loops, exposes paid supply, and compounds what it learns
+              into the next round of execution.
             </p>
           </div>
           <div class="feature-grid">
             <article class="feature-card">
               <span class="feature-card__badge">01</span>
-              <h3>Continuous execution loop</h3>
-              <p>Think, act, observe, repeat. OpenFox keeps advancing work instead of stopping after one reply.</p>
+              <h3>Managed local runtime</h3>
+              <p>Provider-first setup, local wallet bootstrap, and state under <code>~/.openfox</code> make the runtime durable from first launch.</p>
             </article>
             <article class="feature-card">
               <span class="feature-card__badge">02</span>
-              <h3>Local-first runtime</h3>
-              <p>Run it locally by default, keep your own state, and bring your own provider keys when needed.</p>
+              <h3>Service mode and cron</h3>
+              <p>Install OpenFox as a Linux user service, inspect heartbeat and cron state, and keep it alive without a terminal tab.</p>
             </article>
             <article class="feature-card">
               <span class="feature-card__badge">03</span>
-              <h3>Wallet and payment flows</h3>
-              <p>TOS wallet support plus x402 payment flow give the agent a path to pay, top up, and settle work.</p>
+              <h3>Wallet rails and x402</h3>
+              <p>Wallet status/send flows, funding helpers, signer bootstrap, and x402-aware payment selection are already wired in.</p>
             </article>
             <article class="feature-card">
               <span class="feature-card__badge">04</span>
-              <h3>Gateway-backed reachability</h3>
-              <p>Provider agents behind NAT can still publish externally reachable capabilities through gateway relay.</p>
+              <h3>Requester, provider, gateway</h3>
+              <p><code>openfox service status</code> maps your config into discovery requester, paid provider, or public gateway relay roles.</p>
             </article>
             <article class="feature-card">
               <span class="feature-card__badge">05</span>
-              <h3>Persistent memory and scheduling</h3>
-              <p>Heartbeat logic, local state, tool history, and task context make it suitable for background work.</p>
+              <h3>Paid observation and oracle APIs</h3>
+              <p>Built-in <code>POST /observe</code>, <code>GET /jobs/:id</code>, <code>POST /oracle/quote</code>, and <code>POST /oracle/resolve</code> are already in tree.</p>
             </article>
             <article class="feature-card">
               <span class="feature-card__badge">06</span>
-              <h3>Extensible agent surface</h3>
-              <p>Skills, local shell access, custom tools, orchestration, and child-agent paths make it hackable.</p>
+              <h3>Task marketplace and scout</h3>
+              <p>Bounded bounty host, solver, and scout flows support question, translation, social proof, and problem-solving tasks.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-card__badge">07</span>
+              <h3>Five-tier memory and soul</h3>
+              <p>Working, episodic, semantic, procedural, and relationship memory plus SOUL reflection keep the agent coherent across restarts.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-card__badge">08</span>
+              <h3>Health, doctor, logs, checks</h3>
+              <p>Operator-facing <code>openfox health</code>, <code>openfox doctor</code>, <code>openfox service check</code>, and <code>openfox logs</code> make runtime state inspectable.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-card__badge">09</span>
+              <h3>Skills, self-mod, child agents</h3>
+              <p>Skill loading, safe self-editing, upstream review, and child-agent lifecycle paths push it beyond a static CLI wrapper.</p>
             </article>
           </div>
         </section>
@@ -325,27 +359,69 @@
           <div class="section-heading">
             <p class="eyebrow">Execution Model</p>
             <h2>How the fox keeps moving</h2>
+            <p>
+              The current loop is not only think-act-observe. It also includes operator setup,
+              service installation, capability publication, and repair-oriented diagnostics.
+            </p>
           </div>
           <div class="timeline__grid">
             <article class="timeline-step">
               <span>01</span>
-              <h3>Provision</h3>
-              <p>Create the local wallet, config directory, and initial identity with the setup wizard.</p>
+              <h3>Bootstrap identity</h3>
+              <p>Create the wallet, config, genesis prompt, and provider connection with the local-first setup wizard.</p>
             </article>
             <article class="timeline-step">
               <span>02</span>
-              <h3>Connect a provider</h3>
-              <p>Bring OpenAI, Anthropic, or Ollama online so the runtime has inference capacity.</p>
+              <h3>Install the service</h3>
+              <p>Move from a demo terminal run to a managed user service with heartbeat, cron history, and durable local logs.</p>
             </article>
             <article class="timeline-step">
               <span>03</span>
-              <h3>Run continuously</h3>
-              <p>Heartbeat, scheduled tasks, memory, and tools keep the agent active without constant operator input.</p>
+              <h3>Publish and route work</h3>
+              <p>Join as a requester, provider, or gateway and expose observation, oracle, faucet, or bounty surfaces through discovery.</p>
             </article>
             <article class="timeline-step">
               <span>04</span>
-              <h3>Earn and extend</h3>
-              <p>Expose capabilities, settle paid work, add skills, and evolve into a longer-lived agent service.</p>
+              <h3>Diagnose and extend</h3>
+              <p>Use health, doctor, logs, skills, memory, and scout flows to keep the runtime repairable and economically useful.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="statement reveal" id="latest-surface">
+          <div class="section-heading">
+            <p class="eyebrow">Earning Engine</p>
+            <h2>Already hunting upside across the network</h2>
+            <p>
+              The docs now describe a platform loop: scout the market, rank the cleanest opportunity,
+              execute the work, settle the result, and preserve enough reserve to keep playing the
+              next round.
+            </p>
+          </div>
+          <div class="statement__grid">
+            <article class="panel-card">
+              <span class="card-kicker">Scout</span>
+              <h3>Scan the network for earning surfaces</h3>
+              <p>
+                Opportunity scouting now spans remote bounties, capability providers, sponsored paths,
+                and other earning surfaces ranked by reward, ambiguity, and execution distance.
+              </p>
+            </article>
+            <article class="panel-card">
+              <span class="card-kicker">Close</span>
+              <h3>Take work and settle it</h3>
+              <p>
+                OpenFox can solve bounded tasks, call paid providers, expose its own paid observation
+                and oracle surfaces, and complete the loop with wallet-aware settlement.
+              </p>
+            </article>
+            <article class="panel-card">
+              <span class="card-kicker">Compound</span>
+              <h3>Keep reserve, learn, and repeat</h3>
+              <p>
+                Survival pressure, memory tiers, service install, doctor output, and skills keep the
+                platform alive, inspectable, and sharper on the next opportunity pass.
+              </p>
             </article>
           </div>
         </section>
@@ -353,18 +429,20 @@
         <section class="quickstart reveal" id="quickstart">
           <div class="section-heading">
             <p class="eyebrow">Quick Start</p>
-            <h2>Three ways to boot the fox</h2>
+            <h2>From first boot to revenue loop</h2>
             <p>
               The site hosts a real installer entry point at <code>https://openfox.im/openfox.sh</code>.
-              If you prefer source-first workflows, the repository path is included below.
+              The current platform already exposes the scout, operator, provider, and marketplace
+              surfaces needed to start moving toward paid work.
             </p>
           </div>
 
           <div class="command-box">
-            <div class="command-box__tabs" role="tablist" aria-label="OpenFox start modes">
+            <div class="command-box__tabs" role="tablist" aria-label="OpenFox workflows">
               <button class="command-tab is-active" data-command-tab="installer" role="tab" aria-selected="true">Installer</button>
               <button class="command-tab" data-command-tab="source" role="tab" aria-selected="false">Source</button>
-              <button class="command-tab" data-command-tab="run" role="tab" aria-selected="false">Run</button>
+              <button class="command-tab" data-command-tab="operate" role="tab" aria-selected="false">Operate</button>
+              <button class="command-tab" data-command-tab="marketplace" role="tab" aria-selected="false">Marketplace</button>
             </div>
 
             <section class="command-panel is-active" data-command-panel="installer">
@@ -385,44 +463,67 @@
 cd openfox
 corepack enable
 corepack prepare pnpm@10.28.1 --activate
-pnpm install</code></pre>
-              <p class="command-note">Best when you want to inspect source, patch the runtime, or wire the homepage to repo updates.</p>
-            </section>
-
-            <section class="command-panel" data-command-panel="run" hidden>
-              <div class="command-panel__toolbar">
-                <span>Provider-first launch</span>
-                <button class="copy-button" data-copy-target="cmd-run">Copy</button>
-              </div>
-              <pre id="cmd-run"><code>export OPENAI_API_KEY=...
+pnpm install
 pnpm openfox --setup
 pnpm openfox --run</code></pre>
-              <p class="command-note">Anthropic and Ollama are also supported. Configuration lives in <code>~/.openfox/openfox.json</code>.</p>
+              <p class="command-note">Best when you want the full local-first wizard, direct source access, and a runtime you can patch or inspect.</p>
+            </section>
+
+            <section class="command-panel" data-command-panel="operate" hidden>
+              <div class="command-panel__toolbar">
+                <span>Operator surface</span>
+                <button class="copy-button" data-copy-target="cmd-operate">Copy</button>
+              </div>
+              <pre id="cmd-operate"><code>openfox service install
+openfox service status
+openfox health
+openfox doctor
+openfox logs --tail 200</code></pre>
+              <p class="command-note">Use this surface when OpenFox stops being a demo and becomes a long-running local service you need to inspect and repair.</p>
+            </section>
+
+            <section class="command-panel" data-command-panel="marketplace" hidden>
+              <div class="command-panel__toolbar">
+                <span>Host / solver / scout</span>
+                <button class="copy-button" data-copy-target="cmd-marketplace">Copy</button>
+              </div>
+              <pre id="cmd-marketplace"><code>./scripts/run-task-marketplace-role.sh host
+./scripts/run-task-marketplace-role.sh solver
+./scripts/run-task-marketplace-role.sh scout</code></pre>
+              <p class="command-note">Role wrappers isolate HOME directories so you can test host, solver, and scout marketplace flows from one source checkout.</p>
             </section>
           </div>
         </section>
 
         <section class="use-cases reveal" id="use-cases">
           <div class="section-heading">
-            <p class="eyebrow">Product Direction</p>
-            <h2>What OpenFox is good for</h2>
+            <p class="eyebrow">Revenue Paths</p>
+            <h2>Where OpenFox can earn now</h2>
           </div>
           <div class="use-cases__grid">
             <article class="use-case-card">
-              <h3>Paid agent APIs</h3>
-              <p>Expose observation or execution capabilities and settle usage with payment-aware runtime paths.</p>
+              <h3>Paid observation providers</h3>
+              <p>Expose one-shot or windowed observation work through a payment-aware API and persist the result for later lookup.</p>
             </article>
             <article class="use-case-card">
-              <h3>Background automation</h3>
-              <p>Keep monitors, triggers, summaries, and multi-step pipelines alive while you are away from the keyboard.</p>
+              <h3>Oracle and bounded resolution</h3>
+              <p>Offer quote, resolve, and result retrieval flows for bounded event or scalar resolution work with a local model in the loop.</p>
             </article>
             <article class="use-case-card">
-              <h3>Oracle and observation work</h3>
-              <p>Long-running tasks benefit from persistent context, repeatable execution, and wallet-linked accountability.</p>
+              <h3>Managed background automation</h3>
+              <p>Keep monitors, triggers, summaries, and multi-step pipelines alive under heartbeat, cron, and managed service install.</p>
             </article>
             <article class="use-case-card">
-              <h3>Gateway-backed provider agents</h3>
-              <p>Private machines can still provide public capabilities through relay paths without direct inbound exposure.</p>
+              <h3>Task marketplace hosts and solvers</h3>
+              <p>Run bounded question, translation, social-proof, and problem-solving bounties with host, solver, and scout operator roles.</p>
+            </article>
+            <article class="use-case-card">
+              <h3>Gateway-backed private agents</h3>
+              <p>Private machines can still publish capabilities through relay paths without direct inbound exposure or a public IP.</p>
+            </article>
+            <article class="use-case-card">
+              <h3>Operator-friendly personal runtimes</h3>
+              <p>Use health, doctor, logs, wallet status, and service checks to keep a personal background agent understandable instead of opaque.</p>
             </article>
           </div>
         </section>
@@ -432,12 +533,15 @@ pnpm openfox --run</code></pre>
             <p class="eyebrow">Deep dive</p>
             <h2>Read the runtime, not the marketing</h2>
             <p>
-              The documentation and architecture notes already explain wallet paths, gateway relay,
-              provider config, memory, orchestration, and policy rules in more detail.
+              The repo now includes operator guides for service mode, doctor and health output, local
+              task marketplace roles, bounty flows, and the broader runtime architecture.
             </p>
             <div class="resource-card__links">
               <a href="https://github.com/openfox-im/openfox/blob/main/DOCUMENTATION.md" target="_blank" rel="noreferrer">Documentation</a>
               <a href="https://github.com/openfox-im/openfox/blob/main/ARCHITECTURE.md" target="_blank" rel="noreferrer">Architecture</a>
+              <a href="https://github.com/openfox-im/openfox/blob/main/docs/OpenFox-Service-Operator-Guide.md" target="_blank" rel="noreferrer">Service Operator Guide</a>
+              <a href="https://github.com/openfox-im/openfox/blob/main/docs/OpenFox-Doctor-Guide.md" target="_blank" rel="noreferrer">Doctor Guide</a>
+              <a href="https://github.com/openfox-im/openfox/blob/main/docs/OpenFox-Local-Task-Marketplace-Guide.md" target="_blank" rel="noreferrer">Task Marketplace Guide</a>
               <a href="https://github.com/openfox-im/openfox/blob/main/README.md" target="_blank" rel="noreferrer">Repository README</a>
             </div>
           </article>
@@ -473,7 +577,7 @@ pnpm openfox --run</code></pre>
             <img class="brand__mark" src="/img/openfox-logo.png" alt="" />
             <span class="brand__text">OpenFox</span>
           </a>
-          <p>While you sleep, Fox keeps working and brings the coins back.</p>
+          <p>Fox scouts earning surfaces, closes the work, and brings the coins back.</p>
         </div>
         <div class="footer__links">
           <a href="https://github.com/openfox-im/openfox" target="_blank" rel="noreferrer">GitHub</a>
@@ -486,6 +590,7 @@ pnpm openfox --run</code></pre>
 
     <script type="module" src="/js/fox-scene.js"></script>
     <script src="/js/agent-viewer.js" defer></script>
+    <script src="/js/hero-formula.js" defer></script>
     <script src="/js/main.js" defer></script>
   </body>
 </html>

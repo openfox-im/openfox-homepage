@@ -3,6 +3,9 @@ const tabPanels = Array.from(document.querySelectorAll("[data-command-panel]"));
 const copyButtons = Array.from(document.querySelectorAll("[data-copy-target]"));
 const revealNodes = Array.from(document.querySelectorAll(".reveal"));
 const yearNode = document.getElementById("currentYear");
+const navToggle = document.querySelector("[data-nav-toggle]");
+const siteNav = document.getElementById("site-nav");
+const mobileNavBreakpoint = 720;
 
 if (yearNode) {
   yearNode.textContent = String(new Date().getFullYear());
@@ -53,6 +56,58 @@ for (const button of copyButtons) {
   });
 }
 
+const closeMobileNav = () => {
+  if (!navToggle || !siteNav) {
+    return;
+  }
+
+  navToggle.setAttribute("aria-expanded", "false");
+  siteNav.classList.remove("is-open");
+  document.body.classList.remove("menu-open");
+};
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener("click", () => {
+    const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!isExpanded));
+    siteNav.classList.toggle("is-open", !isExpanded);
+    document.body.classList.toggle("menu-open", !isExpanded);
+  });
+
+  for (const link of siteNav.querySelectorAll("a")) {
+    link.addEventListener("click", () => {
+      closeMobileNav();
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    if (window.innerWidth > mobileNavBreakpoint) {
+      return;
+    }
+
+    if (!siteNav.classList.contains("is-open")) {
+      return;
+    }
+
+    const target = event.target;
+    if (target instanceof Node && !siteNav.contains(target) && !navToggle.contains(target)) {
+      closeMobileNav();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileNav();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > mobileNavBreakpoint) {
+      closeMobileNav();
+    }
+  });
+}
+
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -77,4 +132,3 @@ if ("IntersectionObserver" in window) {
     node.classList.add("is-visible");
   }
 }
-
