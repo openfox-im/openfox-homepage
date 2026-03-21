@@ -1,0 +1,69 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: openfox-pages-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      GIT_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.28.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Check Cloudflare secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${CLOUDFLARE_API_TOKEN}" || (echo "Missing CLOUDFLARE_API_TOKEN" >&2; exit 1)
+          test -n "${CLOUDFLARE_ACCOUNT_ID}" || (echo "Missing CLOUDFLARE_ACCOUNT_ID" >&2; exit 1)
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        shell: bash
+        run: |
+          set -euo pipefail
+          commit_message="${GIT_COMMIT_MESSAGE:-Manual Pages deployment}"
+          pnpm exec wrangler pages deploy public \
+            --project-name openfox-homepage \
+            --branch main \
+            --commit-hash "${GITHUB_SHA}" \
+            --commit-message "${commit_message}" | tee deploy.log
+          deploy_url="$(grep -Eo 'https://[a-z0-9.-]+\.pages\.dev' deploy.log | tail -n 1)"
+          if [ -z "${deploy_url}" ]; then
+            echo "Could not determine Pages deployment URL from Wrangler output" >&2
+            exit 1
+          fi
+          echo "deploy_url=${deploy_url}" >> "${GITHUB_OUTPUT}"
+
+      - name: Verify preview deployment
+        run: pnpm verify:url "${{ steps.deploy.outputs.deploy_url }}"
+
+      - name: Verify production domain
+        run: pnpm verify:url "https://openfox.im/"

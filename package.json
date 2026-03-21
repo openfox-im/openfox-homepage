@@ -9,7 +9,8 @@
     "dev": "wrangler pages dev public",
     "deploy": "wrangler pages deploy public --project-name openfox-homepage",
     "pages:create": "wrangler pages project create openfox-homepage",
-    "preview:pages": "wrangler pages dev public"
+    "preview:pages": "wrangler pages dev public",
+    "verify:url": "node scripts/verify-deployment.mjs"
   },
   "devDependencies": {
     "three": "0.163.0",
