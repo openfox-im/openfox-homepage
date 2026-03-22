@@ -84,7 +84,7 @@
         <section class="hero reveal" id="top">
           <div class="hero__copy">
             <div class="hero__formula" aria-hidden="true">
-              <canvas class="hero__formula-canvas" data-hero-formula></canvas>
+              <canvas class="hero__formula-canvas" data-formula-variant="hero"></canvas>
             </div>
             <p class="eyebrow">opportunity-hunting / wallet-native / revenue-aware</p>
             <h1>The fox that finds work and brings the coins back.</h1>
@@ -270,31 +270,36 @@
             <p class="eyebrow">Why it exists</p>
             <h2>Not another AI chat tab</h2>
           </div>
-          <div class="statement__grid">
-            <article class="panel-card">
-              <span class="card-kicker">Most products</span>
-              <h3>Wait for the next click</h3>
-              <p>
-                A human asks once, the model answers once, and the workflow collapses as soon as the
-                tab closes.
-              </p>
-            </article>
-            <article class="panel-card">
-              <span class="card-kicker">OpenFox</span>
-              <h3>Hunts the next revenue path</h3>
-              <p>
-                It wakes, scans bounties and providers, ranks the highest-signal earning surface, and
-                keeps working toward a longer-lived objective.
-              </p>
-            </article>
-            <article class="panel-card">
-              <span class="card-kicker">Economic edge</span>
-              <h3>Can price, execute, and settle its own work</h3>
-              <p>
-                Paid observation and oracle surfaces, x402, wallet payout hooks, and gateway
-                reachability turn background execution into a path toward revenue.
-              </p>
-            </article>
+          <div class="statement__stage">
+            <div class="statement__formula" aria-hidden="true">
+              <canvas class="statement__formula-canvas" data-formula-variant="statement"></canvas>
+            </div>
+            <div class="statement__grid">
+              <article class="panel-card">
+                <span class="card-kicker">Most products</span>
+                <h3>Wait for the next click</h3>
+                <p>
+                  A human asks once, the model answers once, and the workflow collapses as soon as the
+                  tab closes.
+                </p>
+              </article>
+              <article class="panel-card">
+                <span class="card-kicker">OpenFox</span>
+                <h3>Hunts the next revenue path</h3>
+                <p>
+                  It wakes, scans bounties and providers, ranks the highest-signal earning surface, and
+                  keeps working toward a longer-lived objective.
+                </p>
+              </article>
+              <article class="panel-card">
+                <span class="card-kicker">Economic edge</span>
+                <h3>Can price, execute, and settle its own work</h3>
+                <p>
+                  Paid observation and oracle surfaces, x402, wallet payout hooks, and gateway
+                  reachability turn background execution into a path toward revenue.
+                </p>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -308,52 +313,57 @@
               into the next round of execution.
             </p>
           </div>
-          <div class="feature-grid">
-            <article class="feature-card">
-              <span class="feature-card__badge">01</span>
-              <h3>Managed local runtime</h3>
-              <p>Provider-first setup, local wallet bootstrap, and state under <code>~/.openfox</code> make the runtime durable from first launch.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-card__badge">02</span>
-              <h3>Service mode and cron</h3>
-              <p>Install OpenFox as a Linux user service, inspect heartbeat and cron state, and keep it alive without a terminal tab.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-card__badge">03</span>
-              <h3>Wallet rails and x402</h3>
-              <p>Wallet status/send flows, funding helpers, signer bootstrap, and x402-aware payment selection are already wired in.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-card__badge">04</span>
-              <h3>Requester, provider, gateway</h3>
-              <p><code>openfox service status</code> maps your config into discovery requester, paid provider, or public gateway relay roles.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-card__badge">05</span>
-              <h3>Paid observation and oracle APIs</h3>
-              <p>Built-in <code>POST /observe</code>, <code>GET /jobs/:id</code>, <code>POST /oracle/quote</code>, and <code>POST /oracle/resolve</code> are already in tree.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-card__badge">06</span>
-              <h3>Task marketplace and scout</h3>
-              <p>Bounded bounty host, solver, and scout flows support question, translation, social proof, and problem-solving tasks.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-card__badge">07</span>
-              <h3>Five-tier memory and soul</h3>
-              <p>Working, episodic, semantic, procedural, and relationship memory plus SOUL reflection keep the agent coherent across restarts.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-card__badge">08</span>
-              <h3>Health, doctor, logs, checks</h3>
-              <p>Operator-facing <code>openfox health</code>, <code>openfox doctor</code>, <code>openfox service check</code>, and <code>openfox logs</code> make runtime state inspectable.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-card__badge">09</span>
-              <h3>Skills, self-mod, child agents</h3>
-              <p>Skill loading, safe self-editing, upstream review, and child-agent lifecycle paths push it beyond a static CLI wrapper.</p>
-            </article>
+          <div class="capabilities__stage">
+            <div class="capabilities__formula" aria-hidden="true">
+              <canvas class="capabilities__formula-canvas" data-formula-variant="capabilities"></canvas>
+            </div>
+            <div class="feature-grid">
+              <article class="feature-card">
+                <span class="feature-card__badge">01</span>
+                <h3>Managed local runtime</h3>
+                <p>Provider-first setup, local wallet bootstrap, and state under <code>~/.openfox</code> make the runtime durable from first launch.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__badge">02</span>
+                <h3>Service mode and cron</h3>
+                <p>Install OpenFox as a Linux user service, inspect heartbeat and cron state, and keep it alive without a terminal tab.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__badge">03</span>
+                <h3>Wallet rails and x402</h3>
+                <p>Wallet status/send flows, funding helpers, signer bootstrap, and x402-aware payment selection are already wired in.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__badge">04</span>
+                <h3>Requester, provider, gateway</h3>
+                <p><code>openfox service status</code> maps your config into discovery requester, paid provider, or public gateway relay roles.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__badge">05</span>
+                <h3>Paid observation and oracle APIs</h3>
+                <p>Built-in <code>POST /observe</code>, <code>GET /jobs/:id</code>, <code>POST /oracle/quote</code>, and <code>POST /oracle/resolve</code> are already in tree.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__badge">06</span>
+                <h3>Task marketplace and scout</h3>
+                <p>Bounded bounty host, solver, and scout flows support question, translation, social proof, and problem-solving tasks.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__badge">07</span>
+                <h3>Five-tier memory and soul</h3>
+                <p>Working, episodic, semantic, procedural, and relationship memory plus SOUL reflection keep the agent coherent across restarts.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__badge">08</span>
+                <h3>Health, doctor, logs, checks</h3>
+                <p>Operator-facing <code>openfox health</code>, <code>openfox doctor</code>, <code>openfox service check</code>, and <code>openfox logs</code> make runtime state inspectable.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__badge">09</span>
+                <h3>Skills, self-mod, child agents</h3>
+                <p>Skill loading, safe self-editing, upstream review, and child-agent lifecycle paths push it beyond a static CLI wrapper.</p>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -366,27 +376,32 @@
               service installation, capability publication, and repair-oriented diagnostics.
             </p>
           </div>
-          <div class="timeline__grid">
-            <article class="timeline-step">
-              <span>01</span>
-              <h3>Bootstrap identity</h3>
-              <p>Create the wallet, config, genesis prompt, and provider connection with the local-first setup wizard.</p>
-            </article>
-            <article class="timeline-step">
-              <span>02</span>
-              <h3>Install the service</h3>
-              <p>Move from a demo terminal run to a managed user service with heartbeat, cron history, and durable local logs.</p>
-            </article>
-            <article class="timeline-step">
-              <span>03</span>
-              <h3>Publish and route work</h3>
-              <p>Join as a requester, provider, or gateway and expose observation, oracle, faucet, or bounty surfaces through discovery.</p>
-            </article>
-            <article class="timeline-step">
-              <span>04</span>
-              <h3>Diagnose and extend</h3>
-              <p>Use health, doctor, logs, skills, memory, and scout flows to keep the runtime repairable and economically useful.</p>
-            </article>
+          <div class="timeline__stage">
+            <div class="timeline__formula" aria-hidden="true">
+              <canvas class="timeline__formula-canvas" data-formula-variant="timeline"></canvas>
+            </div>
+            <div class="timeline__grid">
+              <article class="timeline-step">
+                <span>01</span>
+                <h3>Bootstrap identity</h3>
+                <p>Create the wallet, config, genesis prompt, and provider connection with the local-first setup wizard.</p>
+              </article>
+              <article class="timeline-step">
+                <span>02</span>
+                <h3>Install the service</h3>
+                <p>Move from a demo terminal run to a managed user service with heartbeat, cron history, and durable local logs.</p>
+              </article>
+              <article class="timeline-step">
+                <span>03</span>
+                <h3>Publish and route work</h3>
+                <p>Join as a requester, provider, or gateway and expose observation, oracle, faucet, or bounty surfaces through discovery.</p>
+              </article>
+              <article class="timeline-step">
+                <span>04</span>
+                <h3>Diagnose and extend</h3>
+                <p>Use health, doctor, logs, skills, memory, and scout flows to keep the runtime repairable and economically useful.</p>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -439,61 +454,66 @@
             </p>
           </div>
 
-          <div class="command-box">
-            <div class="command-box__tabs" role="tablist" aria-label="OpenFox workflows">
-              <button class="command-tab is-active" data-command-tab="installer" role="tab" aria-selected="true">Installer</button>
-              <button class="command-tab" data-command-tab="source" role="tab" aria-selected="false">Source</button>
-              <button class="command-tab" data-command-tab="operate" role="tab" aria-selected="false">Operate</button>
-              <button class="command-tab" data-command-tab="marketplace" role="tab" aria-selected="false">Marketplace</button>
+          <div class="command-box quickstart__stage">
+            <div class="quickstart__matrix" aria-hidden="true">
+              <canvas class="quickstart__matrix-canvas" data-formula-variant="quickstart"></canvas>
             </div>
-
-            <section class="command-panel is-active" data-command-panel="installer">
-              <div class="command-panel__toolbar">
-                <span>Hosted one-liner</span>
-                <button class="copy-button" data-copy-target="cmd-installer">Copy</button>
+            <div class="quickstart__content">
+              <div class="command-box__tabs" role="tablist" aria-label="OpenFox workflows">
+                <button class="command-tab is-active" data-command-tab="installer" role="tab" aria-selected="true">Installer</button>
+                <button class="command-tab" data-command-tab="source" role="tab" aria-selected="false">Source</button>
+                <button class="command-tab" data-command-tab="operate" role="tab" aria-selected="false">Operate</button>
+                <button class="command-tab" data-command-tab="marketplace" role="tab" aria-selected="false">Marketplace</button>
               </div>
-              <pre id="cmd-installer"><code>curl -fsSL https://openfox.im/openfox.sh | sh</code></pre>
-              <p class="command-note">Bootstraps Node/Pnpm prerequisites, clones the repo, installs dependencies, builds, then starts the runtime.</p>
-            </section>
 
-            <section class="command-panel" data-command-panel="source" hidden>
-              <div class="command-panel__toolbar">
-                <span>Hackable checkout</span>
-                <button class="copy-button" data-copy-target="cmd-source">Copy</button>
-              </div>
-              <pre id="cmd-source"><code>git clone https://github.com/openfox-im/openfox.git
+              <section class="command-panel is-active" data-command-panel="installer">
+                <div class="command-panel__toolbar">
+                  <span>Hosted one-liner</span>
+                  <button class="copy-button" data-copy-target="cmd-installer">Copy</button>
+                </div>
+                <pre id="cmd-installer"><code>curl -fsSL https://openfox.im/openfox.sh | sh</code></pre>
+                <p class="command-note">Bootstraps Node/Pnpm prerequisites, clones the repo, installs dependencies, builds, then starts the runtime.</p>
+              </section>
+
+              <section class="command-panel" data-command-panel="source" hidden>
+                <div class="command-panel__toolbar">
+                  <span>Hackable checkout</span>
+                  <button class="copy-button" data-copy-target="cmd-source">Copy</button>
+                </div>
+                <pre id="cmd-source"><code>git clone https://github.com/openfox-im/openfox.git
 cd openfox
 corepack enable
 corepack prepare pnpm@10.28.1 --activate
 pnpm install
 pnpm openfox --setup
 pnpm openfox --run</code></pre>
-              <p class="command-note">Best when you want the full local-first wizard, direct source access, and a runtime you can patch or inspect.</p>
-            </section>
+                <p class="command-note">Best when you want the full local-first wizard, direct source access, and a runtime you can patch or inspect.</p>
+              </section>
 
-            <section class="command-panel" data-command-panel="operate" hidden>
-              <div class="command-panel__toolbar">
-                <span>Operator surface</span>
-                <button class="copy-button" data-copy-target="cmd-operate">Copy</button>
-              </div>
-              <pre id="cmd-operate"><code>openfox service install
+              <section class="command-panel" data-command-panel="operate" hidden>
+                <div class="command-panel__toolbar">
+                  <span>Operator surface</span>
+                  <button class="copy-button" data-copy-target="cmd-operate">Copy</button>
+                </div>
+                <pre id="cmd-operate"><code>openfox service install
 openfox service status
 openfox health
 openfox doctor
 openfox logs --tail 200</code></pre>
-              <p class="command-note">Use this surface when OpenFox stops being a demo and becomes a long-running local service you need to inspect and repair.</p>
-            </section>
+                <p class="command-note">Use this surface when OpenFox stops being a demo and becomes a long-running local service you need to inspect and repair.</p>
+              </section>
 
-            <section class="command-panel" data-command-panel="marketplace" hidden>
-              <div class="command-panel__toolbar">
-                <span>Host / solver / scout</span>
-                <button class="copy-button" data-copy-target="cmd-marketplace">Copy</button>
-              </div>
-              <pre id="cmd-marketplace"><code>./scripts/run-task-marketplace-role.sh host
+              <section class="command-panel" data-command-panel="marketplace" hidden>
+                <div class="command-panel__toolbar">
+                  <span>Host / solver / scout</span>
+                  <button class="copy-button" data-copy-target="cmd-marketplace">Copy</button>
+                </div>
+                <pre id="cmd-marketplace"><code>./scripts/run-task-marketplace-role.sh host
 ./scripts/run-task-marketplace-role.sh solver
 ./scripts/run-task-marketplace-role.sh scout</code></pre>
-              <p class="command-note">Role wrappers isolate HOME directories so you can test host, solver, and scout marketplace flows from one source checkout.</p>
-            </section>
+                <p class="command-note">Role wrappers isolate HOME directories so you can test host, solver, and scout marketplace flows from one source checkout.</p>
+              </section>
+            </div>
           </div>
         </section>
 
@@ -502,31 +522,36 @@ openfox logs --tail 200</code></pre>
             <p class="eyebrow">Revenue Paths</p>
             <h2>Where OpenFox can earn now</h2>
           </div>
-          <div class="use-cases__grid">
-            <article class="use-case-card">
-              <h3>Paid observation providers</h3>
-              <p>Expose one-shot or windowed observation work through a payment-aware API and persist the result for later lookup.</p>
-            </article>
-            <article class="use-case-card">
-              <h3>Oracle and bounded resolution</h3>
-              <p>Offer quote, resolve, and result retrieval flows for bounded event or scalar resolution work with a local model in the loop.</p>
-            </article>
-            <article class="use-case-card">
-              <h3>Managed background automation</h3>
-              <p>Keep monitors, triggers, summaries, and multi-step pipelines alive under heartbeat, cron, and managed service install.</p>
-            </article>
-            <article class="use-case-card">
-              <h3>Task marketplace hosts and solvers</h3>
-              <p>Run bounded question, translation, social-proof, and problem-solving bounties with host, solver, and scout operator roles.</p>
-            </article>
-            <article class="use-case-card">
-              <h3>Gateway-backed private agents</h3>
-              <p>Private machines can still publish capabilities through relay paths without direct inbound exposure or a public IP.</p>
-            </article>
-            <article class="use-case-card">
-              <h3>Operator-friendly personal runtimes</h3>
-              <p>Use health, doctor, logs, wallet status, and service checks to keep a personal background agent understandable instead of opaque.</p>
-            </article>
+          <div class="use-cases__stage">
+            <div class="use-cases__formula" aria-hidden="true">
+              <canvas class="use-cases__formula-canvas" data-formula-variant="use-cases"></canvas>
+            </div>
+            <div class="use-cases__grid">
+              <article class="use-case-card">
+                <h3>Paid observation providers</h3>
+                <p>Expose one-shot or windowed observation work through a payment-aware API and persist the result for later lookup.</p>
+              </article>
+              <article class="use-case-card">
+                <h3>Oracle and bounded resolution</h3>
+                <p>Offer quote, resolve, and result retrieval flows for bounded event or scalar resolution work with a local model in the loop.</p>
+              </article>
+              <article class="use-case-card">
+                <h3>Managed background automation</h3>
+                <p>Keep monitors, triggers, summaries, and multi-step pipelines alive under heartbeat, cron, and managed service install.</p>
+              </article>
+              <article class="use-case-card">
+                <h3>Task marketplace hosts and solvers</h3>
+                <p>Run bounded question, translation, social-proof, and problem-solving bounties with host, solver, and scout operator roles.</p>
+              </article>
+              <article class="use-case-card">
+                <h3>Gateway-backed private agents</h3>
+                <p>Private machines can still publish capabilities through relay paths without direct inbound exposure or a public IP.</p>
+              </article>
+              <article class="use-case-card">
+                <h3>Operator-friendly personal runtimes</h3>
+                <p>Use health, doctor, logs, wallet status, and service checks to keep a personal background agent understandable instead of opaque.</p>
+              </article>
+            </div>
           </div>
         </section>
 
